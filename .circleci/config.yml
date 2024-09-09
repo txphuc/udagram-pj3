@@ -21,11 +21,10 @@ jobs:
       - run:
           name: Tag Docker images
           command: |
-            TIMESTAMP=$(date +"%Y%m%d%H%M%S")
-            docker tag udagram-api-feed txphuc97/udagram-api-feed:${TIMESTAMP}
-            docker tag udagram-api-user txphuc97/udagram-api-user:${TIMESTAMP}
-            docker tag udagram-frontend txphuc97/udagram-frontend:${TIMESTAMP}
-            docker tag udagram-reverseproxy txphuc97/udagram-reverseproxy:${TIMESTAMP}
+            docker tag udagram-api-feed txphuc97/udagram-api-feed:v1
+            docker tag udagram-api-user txphuc97/udagram-api-user:v1
+            docker tag udagram-frontend txphuc97/udagram-frontend:v1
+            docker tag udagram-reverseproxy txphuc97/udagram-reverseproxy:v1
       - run:
           name: Login to DockerHub
           command: |
@@ -33,11 +32,10 @@ jobs:
       - run:
           name: Push Docker images
           command: |
-            TIMESTAMP=$(date +"%Y%m%d%H%M%S")
-            docker push txphuc97/udagram-api-feed:${TIMESTAMP}
-            docker push txphuc97/udagram-api-user:${TIMESTAMP}
-            docker push txphuc97/udagram-frontend:${TIMESTAMP}
-            docker push txphuc97/udagram-reverseproxy:${TIMESTAMP}
+            docker push txphuc97/udagram-api-feed:v1
+            docker push txphuc97/udagram-api-user:v1
+            docker push txphuc97/udagram-frontend:v1
+            docker push txphuc97/udagram-reverseproxy:v1
 
 workflows:
   version: 2
